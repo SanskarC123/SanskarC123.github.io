@@ -1,10 +1,19 @@
 // Hamburger Menu
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const navLinksA = document.querySelectorAll('.nav-links a');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
     hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+navLinksA.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
 });
 
 // Typing Effect

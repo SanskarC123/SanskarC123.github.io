@@ -367,17 +367,13 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-    .navbar {
-        padding: 15px 30px;
-    }
-
     .nav-links {
         display: none;
         position: fixed;
         top: 70px;
         left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
         padding: 20px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         flex-direction: column;
@@ -417,16 +413,70 @@ footer {
         font-size: 1.2rem;
     }
 
-    .about, .skills, .projects, .contact {
-        padding: 80px 30px;
+    .about {
+        padding: 60px 20px;
     }
 
-    .about h2, .skills h2, .projects h2, .contact h2 {
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about h2 {
         font-size: 2rem;
     }
 
+    .skills {
+        padding: 60px 20px;
+    }
+
+    .skills h2 {
+        font-size: 2rem;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .projects {
+        padding: 60px 20px;
+    }
+
+    .projects h2 {
+        font-size: 2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .project-card {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .contact h2 {
+        font-size: 2rem;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
     .contact-form {
-        max-width: 100%;
+        width: 100%;
+    }
+
+    .contact-info {
+        width: 100%;
     }
 }
 
@@ -443,16 +493,9 @@ footer {
         font-size: 1rem;
     }
 
-    .skills-container {
-        grid-template-columns: 1fr;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card {
-        margin-bottom: 20px;
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 
     .social-links a {
