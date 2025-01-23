@@ -2,18 +2,43 @@
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const navLinksA = document.querySelectorAll('.nav-links a');
+const body = document.body;
 
-hamburger.addEventListener('click', () => {
+// Function to toggle navigation
+function toggleNav() {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
-});
+    body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+}
+
+// Toggle navigation on hamburger click
+hamburger.addEventListener('click', toggleNav);
 
 // Close mobile menu when clicking on a link
 navLinksA.forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+        toggleNav();
     });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && 
+        !navLinks.contains(e.target) && 
+        !hamburger.contains(e.target)) {
+        toggleNav();
+    }
+});
+
+// Close mobile menu on window resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+            toggleNav();
+        }
+    }, 250);
 });
 
 // Typing Effect
